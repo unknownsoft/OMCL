@@ -13,9 +13,9 @@ namespace OMCL.Core.Arguments
     public class ArgumentBuilder : IReadOnlyList<Argument>
     {
         private List<Argument> members = new List<Argument>();
-        public ArgumentBuilder()
+        public ArgumentBuilder(IEnumerable<Argument> arguments)
         {
-            
+            members = new List<Argument>(arguments);
         }
         /// <summary>
         /// 生成参数
@@ -25,7 +25,7 @@ namespace OMCL.Core.Arguments
         {
             List<string> arguments = new List<string>();
             Priority priority = Priority.First;
-            while (priority < Priority.Tail)
+            while (priority <= Priority.Tail)
             {
                 foreach (var argument in this)
                 {
@@ -52,7 +52,6 @@ namespace OMCL.Core.Arguments
             return String.Join(" ", arguments.ToArray());
         }
         public Argument this[int index] => members[index];
-
         public int Count => members.Count;
 
         public IEnumerator<Argument> GetEnumerator() => members.GetEnumerator();

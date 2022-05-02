@@ -14,5 +14,10 @@ namespace OMCL.Web.News
         public abstract string Description { get; }
         public abstract void OnClick(object sender, RoutedEventArgs e);
         public virtual Image Background => null;
+        public override string ToString()
+        {
+            return Title;
+        }
+        public bool NoBackground = true;
     }
 }

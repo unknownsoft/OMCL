@@ -62,7 +62,7 @@ namespace OMCL.Configuration
         private static string getExceptionDescription(Exception exception, string description)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(description).Append(":\nExcaption stack Details:\n").Append(exception);
+            sb.Append(description).Append(":\nException stack Details:\n").Append(exception);
             return sb.ToString();
         }
         private static void log(string type,string name,string text)

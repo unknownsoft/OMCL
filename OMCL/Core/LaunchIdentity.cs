@@ -13,7 +13,7 @@ namespace OMCL.Core
         {
             var identity = new LaunchIdentity();
             identity.Name = Name;
-            identity.LoginSingature = "Offline";
+            identity.LoginSignature = "Offline";
             using(NameBasedGenerator generator = new NameBasedGenerator())
             {
                 identity.UUID = identity.XUID = identity.AuthToken = generator.GenerateGuid("OfflinePlayer:" + Name).ToString();
@@ -26,13 +26,13 @@ namespace OMCL.Core
             UUID = UUID,
             XUID = XUID,
             AuthToken = Authtoken,
-            LoginSingature = "Mojang"
+            LoginSignature = "Mojang"
         };
         public static LaunchIdentity CreateOnline(string Name, string UUID, string Authtoken) => CreateOnline(Name, UUID, Authtoken, Authtoken);
         public string Name;
         public string UUID;
         public string XUID;
         public string AuthToken;
-        public string LoginSingature;
+        public string LoginSignature;
     }
 }
